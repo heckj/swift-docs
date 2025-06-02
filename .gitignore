@@ -1,0 +1,14 @@
+*.pbxuser
+*.xcuserstate
+*.xcworkspace/
+.DS_Store
+.build/
+.docc-build/
+.netrc
+.swiftpm/configuration/registries.json
+.swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
+/.build
+/Packages
+DerivedData/
+build/
+xcuserdata/

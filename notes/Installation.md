@@ -1,0 +1,30 @@
+## Installation & Download
+
+- https://swift.org/download/
+- https://swift.org/install/
+- https://swift.org/install/linux/
+- https://swift.org/install/linux/amazonlinux/
+- https://swift.org/install/linux/amazonlinux/2/
+- https://swift.org/install/linux/debian/
+- https://swift.org/install/linux/debian/12/
+- https://swift.org/install/linux/docker/
+- https://swift.org/install/linux/fedora/
+- https://swift.org/install/linux/fedora/39/
+- https://swift.org/install/linux/rpm/
+- https://swift.org/install/linux/swiftly/
+- https://swift.org/install/linux/tarball/
+- https://swift.org/install/linux/ubi/
+- https://swift.org/install/linux/ubi/9/
+- https://swift.org/install/linux/ubuntu/
+- https://swift.org/install/linux/ubuntu/20_04/
+- https://swift.org/install/linux/ubuntu/22_04/
+- https://swift.org/install/linux/ubuntu/24_04/
+- https://swift.org/install/macos/
+- https://swift.org/install/macos/package_installer/
+- https://swift.org/install/macos/swiftly/
+- https://swift.org/install/windows/
+- https://swift.org/install/windows/archived/
+- https://swift.org/install/windows/manual/
+- https://swift.org/install/windows/scoop/
+- https://swift.org/install/windows/winget/
+- https://swift.org/monthly-non-darwin-release/
