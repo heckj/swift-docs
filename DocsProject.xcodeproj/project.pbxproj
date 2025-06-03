@@ -63,6 +63,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9D13CDF72DEF9E5700436FB0 /* Pitch.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Pitch.md; sourceTree = "<group>"; };
 		9D38AA7D2DEE3BEF008CFB65 /* libInterop.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libInterop.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D9414212DEE5FCA009D7FA0 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		9D9414222DEE61C7009D7FA0 /* APIEndpoints.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = APIEndpoints.md; sourceTree = "<group>"; };
@@ -151,6 +152,7 @@
 		9D9414232DEE61C7009D7FA0 /* notes */ = {
 			isa = PBXGroup;
 			children = (
+				9D13CDF72DEF9E5700436FB0 /* Pitch.md */,
 				9D9414242DEE62CF009D7FA0 /* Documentation.md */,
 				9D9414252DEE62CF009D7FA0 /* GettingStarted.md */,
 				9D9414262DEE62CF009D7FA0 /* Installation.md */,

@@ -1,0 +1,10 @@
+# The following lines are used by GitHub to automatically recommend reviewers.
+
+* @heckj @shahmishal
+
+/APIGuides.docc/* @swiftlang/language-steering-group
+/ToolGuides.docc/* @swiftlang/platform-steering-group
+/ServerGuides.docc/* @swiftlang/server-workgroup
+/SwiftLangGuides.docc/* @swiftlang/language-steering-group
+/InteropGuides.docc/* @swiftlang/cxx-interop-workgroup
+

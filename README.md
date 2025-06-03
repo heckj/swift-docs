@@ -1,19 +1,38 @@
+# Swift Docs
+
+## Introduction
+
 Prototype / Experiment to re-work the *existing* [documentation content on swift.org](https://github.com/swiftlang/swift-org-website) into a DocC format
 
-[Swift.org](https://www.swift.org) is primarily backed by a Jekyll template structure.
-Using the existing [sitemap.xml](https://www.swift.org/sitemap.xml) to map the site, I broke the URLs down into a variety of categories:
+## Motivation
 
-- [Core and Security](./notes/CoreSecurity.md) 
-- [API Endpoints](./notes/APIEndpoints.md)
-- [Packages](./notes/Packages.md)
-- [Workgroups](./notes/Workgroups.md)
-- [Installation](./notes/Installation.md)
-- [Getting Started](./notes/GettingStarted.md)
-- [Documentation](./notes/Documentation.md)
+Following along from the [Swift Information Architecture project](https://forums.swift.org/t/swift-high-level-information-architecture/80066), this repository is a potential outcome for the [Documentation focus area](https://forums.swift.org/t/swift-high-level-information-architecture/80066#p-367675-documentation-41).
 
-Of this, I want to focus on URLs from [Documentation](./notes/Documentation.md).
+In particular, to host the source for Swift documentation:
+- in a well known location
+- provide a single source of truth
+- streamlined for community updates 
+- support relevant reviewers to maintain technical accuracy
 
-My ideal state is Swift Documentation -> 
+## Proposed Solution
+
+This repository is intended to host collections of documentation content that aren't aligned with exsting repositories that exist in the [github.com/swiftlang] organization. 
+For example, DocC, Swift Package Manager, Swiftly, and others have existing repositories that can host documentation relevant to those tools. 
+
+I propose this repository hosts content for a workgroup or steering group that isn't aligned with either an existing repository or that maps to a Swift package as API reference documentation.
+Based on my analysis of the content hosted as articles and pages in swift.org, there are several collections that seem well aligned.
+
+Content that's already in external repositories - such as the [Swift concurrency migration guide](https://github.com/apple/swift-migration-guide) or the [swift-embedded-examples content](https://github.com/apple/swift-embedded-examples) - could migrate into this repository if that's convenient, or continue to exist seperately.
+Both of those repositories host additional code, and especially in the case of swift-embedded-examples, I suspect keeping their Swift code content and related guides together would have notable benefits when updating.
+
+Within this repository, I propose to align a DocC catalog (a collection of articles and related media) with an identified workgroup or steering group. 
+To provide relevant reviewer control, map each catalog (a directory structure) to a [CODEOWNERS](./CODEOWNERS) file that can be tweaked to provide reviewers from those groups for each catalog.
+ 
+What is the plan to not break links to existing content when moved to DocC?
+
+
+
+### Swift Docs Repository Content
 
 - Guides - one for each workgroup or steering group that wants to provide them, examples:
   - API guidelines (moderated/reviewed by the language steering group)
@@ -50,17 +69,34 @@ sets of documentation, although likely hosted in the repositories associated wit
   - repl and debugger docs
   - docc
 
-Tooling docs in DocC catalogs:
+## Alternatives Considered
 
-https://www.swift.org/documentation/tspl (documentation workgroup)
-https://docs.swift.org/swift-book/documentation/the-swift-programming-language/
-https://www.swift.org/documentation/docc/ (docc documentation)
+### Existing documentation already in DocC catalog format
 
-swift compiler diagnostics (swift language steering group)
+- https://www.swift.org/documentation/tspl (documentation workgroup)
+- https://docs.swift.org/swift-book/documentation/the-swift-programming-language/
+- https://www.swift.org/documentation/docc/ (docc documentation)
 
-swiftly (ecosystem steering group)
-vscode-extension (ecosystem steering group)
-package manager (ecosystem steering group)
+- swift compiler diagnostics (swift language steering group)
 
-swift embedded examples (embedded steering group - platforms?)
+- swiftly (ecosystem steering group)
+- vscode-extension (ecosystem steering group)
+- package manager (ecosystem steering group)
 
+- swift embedded examples (embedded steering group - platforms?)
+
+
+### Background and existing swift.org structure
+
+[Swift.org](https://www.swift.org) is primarily backed by a Jekyll template structure.
+Using the existing [sitemap.xml](https://www.swift.org/sitemap.xml) to map the site, I broke up the list of URLs into categories:
+
+- [Core and Security](./notes/CoreSecurity.md) 
+- [API Endpoints](./notes/APIEndpoints.md)
+- [Packages](./notes/Packages.md)
+- [Workgroups](./notes/Workgroups.md)
+- [Installation](./notes/Installation.md)
+- [Getting Started](./notes/GettingStarted.md)
+- [Documentation](./notes/Documentation.md)
+
+The content of this repository focuses on [Documentation](./notes/Documentation.md).
