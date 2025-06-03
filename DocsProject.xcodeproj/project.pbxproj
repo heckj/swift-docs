@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9D94141F2DEE3C53009D7FA0 /* Articles.docc in Sources */ = {isa = PBXBuildFile; fileRef = 9D94141B2DEE3C53009D7FA0 /* Articles.docc */; };
-		9D9414352DEE65FC009D7FA0 /* ApiDesign.docc in Sources */ = {isa = PBXBuildFile; fileRef = 9D9414192DEE3C3C009D7FA0 /* ApiDesign.docc */; };
-		9D94144C2DEE6656009D7FA0 /* Swift.docc in Sources */ = {isa = PBXBuildFile; fileRef = 9D94141D2DEE3C53009D7FA0 /* Swift.docc */; };
-		9D94144D2DEE6665009D7FA0 /* Server.docc in Sources */ = {isa = PBXBuildFile; fileRef = 9D94141C2DEE3C53009D7FA0 /* Server.docc */; };
+		9D96F0062DEF7A82000B11DF /* APIGuides.docc in Sources */ = {isa = PBXBuildFile; fileRef = 9D96F0052DEF7A82000B11DF /* APIGuides.docc */; };
+		9D96F0082DEF7AB7000B11DF /* ToolGuides.docc in Sources */ = {isa = PBXBuildFile; fileRef = 9D96F0072DEF7AB7000B11DF /* ToolGuides.docc */; };
+		9D96F00A2DEF7AF1000B11DF /* ServerGuides.docc in Sources */ = {isa = PBXBuildFile; fileRef = 9D96F0092DEF7AF1000B11DF /* ServerGuides.docc */; };
+		9D96F00C2DEF7B02000B11DF /* SwiftLangGuides.docc in Sources */ = {isa = PBXBuildFile; fileRef = 9D96F00B2DEF7B02000B11DF /* SwiftLangGuides.docc */; };
+		9D96F00E2DEF7B10000B11DF /* InteropGuides.docc in Sources */ = {isa = PBXBuildFile; fileRef = 9D96F00D2DEF7B10000B11DF /* InteropGuides.docc */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -50,14 +51,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9D96EFFC2DEF7A5A000B11DF /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		9D38AA7D2DEE3BEF008CFB65 /* libArticles.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libArticles.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		9D9414192DEE3C3C009D7FA0 /* ApiDesign.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = ApiDesign.docc; sourceTree = "<group>"; };
-		9D94141B2DEE3C53009D7FA0 /* Articles.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Articles.docc; sourceTree = "<group>"; };
-		9D94141C2DEE3C53009D7FA0 /* Server.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Server.docc; sourceTree = "<group>"; };
-		9D94141D2DEE3C53009D7FA0 /* Swift.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Swift.docc; sourceTree = "<group>"; };
+		9D38AA7D2DEE3BEF008CFB65 /* libInterop.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libInterop.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D9414212DEE5FCA009D7FA0 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		9D9414222DEE61C7009D7FA0 /* APIEndpoints.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = APIEndpoints.md; sourceTree = "<group>"; };
 		9D9414242DEE62CF009D7FA0 /* Documentation.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Documentation.md; sourceTree = "<group>"; };
@@ -66,9 +72,15 @@
 		9D9414272DEE62CF009D7FA0 /* Workgroups.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Workgroups.md; sourceTree = "<group>"; };
 		9D9414282DEE6335009D7FA0 /* Packages.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Packages.md; sourceTree = "<group>"; };
 		9D9414292DEE637F009D7FA0 /* CoreSecurity.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CoreSecurity.md; sourceTree = "<group>"; };
-		9D94142E2DEE65E2009D7FA0 /* libAPIDesign.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAPIDesign.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D94142E2DEE65E2009D7FA0 /* libAPI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAPI.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D94143A2DEE663D009D7FA0 /* libServer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libServer.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		9D9414452DEE664C009D7FA0 /* libSwift.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSwift.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D9414452DEE664C009D7FA0 /* libSwiftLang.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSwiftLang.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D96EFFE2DEF7A5A000B11DF /* libTools.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTools.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D96F0052DEF7A82000B11DF /* APIGuides.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = APIGuides.docc; sourceTree = "<group>"; };
+		9D96F0072DEF7AB7000B11DF /* ToolGuides.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = ToolGuides.docc; sourceTree = "<group>"; };
+		9D96F0092DEF7AF1000B11DF /* ServerGuides.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = ServerGuides.docc; sourceTree = "<group>"; };
+		9D96F00B2DEF7B02000B11DF /* SwiftLangGuides.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = SwiftLangGuides.docc; sourceTree = "<group>"; };
+		9D96F00D2DEF7B10000B11DF /* InteropGuides.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = InteropGuides.docc; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +112,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9D96EFFB2DEF7A5A000B11DF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -108,21 +127,23 @@
 			children = (
 				9D9414232DEE61C7009D7FA0 /* notes */,
 				9D9414212DEE5FCA009D7FA0 /* README.md */,
-				9D94141B2DEE3C53009D7FA0 /* Articles.docc */,
-				9D94141C2DEE3C53009D7FA0 /* Server.docc */,
-				9D94141D2DEE3C53009D7FA0 /* Swift.docc */,
-				9D9414192DEE3C3C009D7FA0 /* ApiDesign.docc */,
 				9D38AA7E2DEE3BEF008CFB65 /* Products */,
+				9D96F0052DEF7A82000B11DF /* APIGuides.docc */,
+				9D96F0072DEF7AB7000B11DF /* ToolGuides.docc */,
+				9D96F0092DEF7AF1000B11DF /* ServerGuides.docc */,
+				9D96F00B2DEF7B02000B11DF /* SwiftLangGuides.docc */,
+				9D96F00D2DEF7B10000B11DF /* InteropGuides.docc */,
 			);
 			sourceTree = "<group>";
 		};
 		9D38AA7E2DEE3BEF008CFB65 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9D38AA7D2DEE3BEF008CFB65 /* libArticles.a */,
-				9D94142E2DEE65E2009D7FA0 /* libAPIDesign.a */,
+				9D38AA7D2DEE3BEF008CFB65 /* libInterop.a */,
+				9D94142E2DEE65E2009D7FA0 /* libAPI.a */,
 				9D94143A2DEE663D009D7FA0 /* libServer.a */,
-				9D9414452DEE664C009D7FA0 /* libSwift.a */,
+				9D9414452DEE664C009D7FA0 /* libSwiftLang.a */,
+				9D96EFFE2DEF7A5A000B11DF /* libTools.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -144,9 +165,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		9D38AA7C2DEE3BEF008CFB65 /* Articles */ = {
+		9D38AA7C2DEE3BEF008CFB65 /* Interop */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9D38AA842DEE3BEF008CFB65 /* Build configuration list for PBXNativeTarget "Articles" */;
+			buildConfigurationList = 9D38AA842DEE3BEF008CFB65 /* Build configuration list for PBXNativeTarget "Interop" */;
 			buildPhases = (
 				9D38AA792DEE3BEF008CFB65 /* Sources */,
 				9D38AA7A2DEE3BEF008CFB65 /* Frameworks */,
@@ -156,16 +177,16 @@
 			);
 			dependencies = (
 			);
-			name = Articles;
+			name = Interop;
 			packageProductDependencies = (
 			);
 			productName = DocsProject;
-			productReference = 9D38AA7D2DEE3BEF008CFB65 /* libArticles.a */;
+			productReference = 9D38AA7D2DEE3BEF008CFB65 /* libInterop.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		9D94142D2DEE65E2009D7FA0 /* APIDesign */ = {
+		9D94142D2DEE65E2009D7FA0 /* API */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9D9414322DEE65E2009D7FA0 /* Build configuration list for PBXNativeTarget "APIDesign" */;
+			buildConfigurationList = 9D9414322DEE65E2009D7FA0 /* Build configuration list for PBXNativeTarget "API" */;
 			buildPhases = (
 				9D94142A2DEE65E2009D7FA0 /* Sources */,
 				9D94142B2DEE65E2009D7FA0 /* Frameworks */,
@@ -175,11 +196,11 @@
 			);
 			dependencies = (
 			);
-			name = APIDesign;
+			name = API;
 			packageProductDependencies = (
 			);
 			productName = APIDesign;
-			productReference = 9D94142E2DEE65E2009D7FA0 /* libAPIDesign.a */;
+			productReference = 9D94142E2DEE65E2009D7FA0 /* libAPI.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		9D9414392DEE663D009D7FA0 /* Server */ = {
@@ -201,9 +222,9 @@
 			productReference = 9D94143A2DEE663D009D7FA0 /* libServer.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		9D9414442DEE664C009D7FA0 /* Swift */ = {
+		9D9414442DEE664C009D7FA0 /* SwiftLang */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9D9414492DEE664C009D7FA0 /* Build configuration list for PBXNativeTarget "Swift" */;
+			buildConfigurationList = 9D9414492DEE664C009D7FA0 /* Build configuration list for PBXNativeTarget "SwiftLang" */;
 			buildPhases = (
 				9D9414412DEE664C009D7FA0 /* Sources */,
 				9D9414422DEE664C009D7FA0 /* Frameworks */,
@@ -213,11 +234,30 @@
 			);
 			dependencies = (
 			);
-			name = Swift;
+			name = SwiftLang;
 			packageProductDependencies = (
 			);
 			productName = Swift;
-			productReference = 9D9414452DEE664C009D7FA0 /* libSwift.a */;
+			productReference = 9D9414452DEE664C009D7FA0 /* libSwiftLang.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		9D96EFFD2DEF7A5A000B11DF /* Tools */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9D96F0022DEF7A5B000B11DF /* Build configuration list for PBXNativeTarget "Tools" */;
+			buildPhases = (
+				9D96EFFA2DEF7A5A000B11DF /* Sources */,
+				9D96EFFB2DEF7A5A000B11DF /* Frameworks */,
+				9D96EFFC2DEF7A5A000B11DF /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Tools;
+			packageProductDependencies = (
+			);
+			productName = Tools;
+			productReference = 9D96EFFE2DEF7A5A000B11DF /* libTools.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -242,6 +282,9 @@
 					9D9414442DEE664C009D7FA0 = {
 						CreatedOnToolsVersion = 16.4;
 					};
+					9D96EFFD2DEF7A5A000B11DF = {
+						CreatedOnToolsVersion = 16.4;
+					};
 				};
 			};
 			buildConfigurationList = 9D38AA782DEE3BEF008CFB65 /* Build configuration list for PBXProject "DocsProject" */;
@@ -258,10 +301,11 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9D38AA7C2DEE3BEF008CFB65 /* Articles */,
-				9D94142D2DEE65E2009D7FA0 /* APIDesign */,
+				9D38AA7C2DEE3BEF008CFB65 /* Interop */,
+				9D94142D2DEE65E2009D7FA0 /* API */,
 				9D9414392DEE663D009D7FA0 /* Server */,
-				9D9414442DEE664C009D7FA0 /* Swift */,
+				9D9414442DEE664C009D7FA0 /* SwiftLang */,
+				9D96EFFD2DEF7A5A000B11DF /* Tools */,
 			);
 		};
 /* End PBXProject section */
@@ -271,7 +315,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D94141F2DEE3C53009D7FA0 /* Articles.docc in Sources */,
+				9D96F00E2DEF7B10000B11DF /* InteropGuides.docc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,7 +323,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D9414352DEE65FC009D7FA0 /* ApiDesign.docc in Sources */,
+				9D96F0062DEF7A82000B11DF /* APIGuides.docc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,7 +331,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D94144D2DEE6665009D7FA0 /* Server.docc in Sources */,
+				9D96F00A2DEF7AF1000B11DF /* ServerGuides.docc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,7 +339,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D94144C2DEE6656009D7FA0 /* Swift.docc in Sources */,
+				9D96F00C2DEF7B02000B11DF /* SwiftLangGuides.docc in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9D96EFFA2DEF7A5A000B11DF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9D96F0082DEF7AB7000B11DF /* ToolGuides.docc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -517,6 +569,30 @@
 			};
 			name = Release;
 		};
+		9D96F0032DEF7A5B000B11DF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9D96F0042DEF7A5B000B11DF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -529,7 +605,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9D38AA842DEE3BEF008CFB65 /* Build configuration list for PBXNativeTarget "Articles" */ = {
+		9D38AA842DEE3BEF008CFB65 /* Build configuration list for PBXNativeTarget "Interop" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9D38AA852DEE3BEF008CFB65 /* Debug */,
@@ -538,7 +614,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9D9414322DEE65E2009D7FA0 /* Build configuration list for PBXNativeTarget "APIDesign" */ = {
+		9D9414322DEE65E2009D7FA0 /* Build configuration list for PBXNativeTarget "API" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9D9414332DEE65E2009D7FA0 /* Debug */,
@@ -556,11 +632,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9D9414492DEE664C009D7FA0 /* Build configuration list for PBXNativeTarget "Swift" */ = {
+		9D9414492DEE664C009D7FA0 /* Build configuration list for PBXNativeTarget "SwiftLang" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9D94144A2DEE664C009D7FA0 /* Debug */,
 				9D94144B2DEE664C009D7FA0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9D96F0022DEF7A5B000B11DF /* Build configuration list for PBXNativeTarget "Tools" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9D96F0032DEF7A5B000B11DF /* Debug */,
+				9D96F0042DEF7A5B000B11DF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

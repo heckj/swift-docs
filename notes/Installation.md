@@ -1,4 +1,4 @@
-## Installation & Download
+## Installation
 
 - https://swift.org/download/
 - https://swift.org/install/
