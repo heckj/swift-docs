@@ -76,7 +76,7 @@ For more details, read [the pitch](./notes/Pitch.md) created for this work.
   - [ ] documentation/articles/zero-to-swift-emacs.md
   - [ ] documentation/articles/getting-started-with-vscode-swift.md
 
-### Background on swift.org contnt structure
+### Background on swift.org content structure
 
 [Swift.org](https://www.swift.org) is primarily backed by a Jekyll template structure.
 Using the existing [sitemap.xml](https://www.swift.org/sitemap.xml) to map the site, I broke up the list of URLs into categories:
