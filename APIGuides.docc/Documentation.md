@@ -35,13 +35,13 @@ These design guidelines explain how to make sure that your code feels like a par
 > If you are having trouble describing your API's
 > functionality in simple terms, **you may have designed the wrong API.**
 
-- <doc:DocComment>
-
 ## Topics
 
-### Naming
+### Fundamentals
 
-### Promote Clear Usage
+- <doc:DocComment>
+
+### Naming - Promote Clear Usage
 
 - <doc:include-words-to-avoid-ambiguity>
 - <doc:omit-needless-words>
@@ -49,6 +49,9 @@ These design guidelines explain how to make sure that your code feels like a par
 - <doc:weak-type-information>
 
 ### Strive for Fluent Usage
+
+<!-- the remaining content is ignore by DocC since it's not a link to a document -->
+<!-- That makes this a handy placeholder to stash the remaining content for WIP efforts -->
 
 ⛔✅
 
