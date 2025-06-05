@@ -41,145 +41,16 @@ These design guidelines explain how to make sure that your code feels like a par
 
 ### Naming
 
-
 ### Promote Clear Usage
 
-* **Include all the words needed to avoid ambiguity** for a person
-  reading code where the name is used.
-  {:#include-words-to-avoid-ambiguity}
-
-  {{expand}}
-  {{detail}}
-  For example, consider a method that removes the element at a
-  given position within a collection.
-
-  ~~~ swift
-  extension List {
-    public mutating func remove(at position: Index) -> Element
-  }
-  employees.remove(at: x)
-  ~~~
-  {:.good}
-
-  If we were to omit the word `at` from the method signature, it could
-  imply to the reader that the method searches for and removes an
-  element equal to `x`, rather than using `x` to indicate the
-  position of the element to remove.
-
-  ~~~ swift
-  employees.remove(x) // unclear: are we removing x?
-  ~~~
-  {:.bad}
-
-  {{enddetail}}
-
-* **Omit needless words.** Every word in a name should convey salient
-  information at the use site.
-  {:#omit-needless-words}
-
-  {{expand}}
-  {{detail}}
-  More words may be needed to clarify intent or disambiguate
-  meaning, but those that are redundant with information the reader
-  already possesses should be omitted. In particular, omit words that
-  *merely repeat* type information.
-
-  ~~~ swift
-  public mutating func removeElement(_ member: Element) -> Element?
-
-  allViews.removeElement(cancelButton)
-  ~~~
-  {:.bad}
-
-  In this case, the word `Element` adds nothing salient at the call
-  site. This API would be better:
-
-  ~~~ swift
-  public mutating func remove(_ member: Element) -> Element?
-
-  allViews.remove(cancelButton) // clearer
-  ~~~
-  {:.good}
-
-  Occasionally, repeating type information is necessary to avoid
-  ambiguity, but in general it is better to use a word that
-  describes a parameter's *role* rather than its type. See the next
-  item for details.
-  {{enddetail}}
-
-* **Name variables, parameters, and associated types according to
-  their roles,** rather than their type constraints.
-  {:#name-according-to-roles}
-
-  {{expand}}
-  {{detail}}
-  ~~~ swift
-  var **string** = "Hello"
-  protocol ViewController {
-    associatedtype **View**Type : View
-  }
-  class ProductionLine {
-    func restock(from **widgetFactory**: WidgetFactory)
-  }
-  ~~~
-  {:.bad}
-
-  Repurposing a type name in this way fails to optimize clarity and
-  expressivity. Instead, strive to choose a name that expresses the
-  entity's *role*.
-
-  ~~~ swift
-  var **greeting** = "Hello"
-  protocol ViewController {
-    associatedtype **ContentView** : View
-  }
-  class ProductionLine {
-    func restock(from **supplier**: WidgetFactory)
-  }
-  ~~~
-  {:.good}
-
-  If an associated type is so tightly bound to its protocol constraint
-  that the protocol name *is* the role, avoid collision by appending
-  `Protocol` to the protocol name:
-
-  ~~~ swift
-  protocol Sequence {
-    associatedtype Iterator : Iterator**Protocol**
-  }
-  protocol Iterator**Protocol** { ... }
-  ~~~
-  {{enddetail}}
-
-* **Compensate for weak type information** to clarify a parameter's role.
-  {:#weak-type-information}
-
-  {{expand}}
-  {{detail}}
-  Especially when a parameter type is `NSObject`, `Any`, `AnyObject`,
-  or a fundamental type such as `Int` or `String`, type information and
-  context at the point of use may not fully convey intent. In this
-  example, the declaration may be clear, but the use site is vague.
-
-  ~~~ swift
-  func add(_ observer: NSObject, for keyPath: String)
-
-  grid.add(self, for: graphics) // vague
-  ~~~
-  {:.bad}
-
-  To restore clarity, **precede each weakly typed parameter with a
-  noun describing its role**:
-
-  ~~~ swift
-  func add**Observer**(_ observer: NSObject, for**KeyPath** path: String)
-  grid.addObserver(self, forKeyPath: graphics) // clear
-  ~~~
-  {:.good}
-  {{enddetail}}
-
+- <doc:include-words-to-avoid-ambiguity>
+- <doc:omit-needless-words>
+- <doc:name-according-to-roles>
+- <doc:weak-type-information>
 
 ### Strive for Fluent Usage
+
+⛔✅
 
 * **Prefer method and function names that make use sites form
   grammatical English phrases.**
@@ -187,28 +58,28 @@ These design guidelines explain how to make sure that your code feels like a par
 
   {{expand}}
   {{detail}}
-  ~~~swift
+  ```swift
   x.insert(y, at: z)          <span class="commentary">“x, insert y at z”</span>
   x.subviews(havingColor: y)  <span class="commentary">“x's subviews having color y”</span>
   x.capitalizingNouns()       <span class="commentary">“x, capitalizing nouns”</span>
-  ~~~
+  ```
   {:.good}
 
-  ~~~swift
+  ```swift
   x.insert(y, position: z)
   x.subviews(color: y)
   x.nounCapitalize()
-  ~~~
+  ```
   {:.bad}
 
   It is acceptable for fluency to degrade after the first argument or
   two when those arguments are not central to the call's meaning:
 
-  ~~~swift
+  ```swift
   AudioUnit.instantiate(
     with: description,
     **options: [.inProcess], completionHandler: stopProgressBar**)
-  ~~~
+  ```
   {{enddetail}}
 
 * **Begin names of factory methods with “`make`”,**
@@ -226,21 +97,21 @@ These design guidelines explain how to make sure that your code feels like a par
   For example, the first arguments to these calls do not read as part of the same
   phrase as the base name:
 
-  ~~~swift
+  ```swift
   let foreground = **Color**(red: 32, green: 64, blue: 128)
   let newPart = **factory.makeWidget**(gears: 42, spindles: 14)
   let ref = **Link**(target: destination)
-  ~~~
+  ```
   {:.good}
 
   In the following, the API author has tried to create grammatical
   continuity with the first argument.
 
-  ~~~swift
+  ```swift
   let foreground = **Color(havingRGBValuesRed: 32, green: 64, andBlue: 128)**
   let newPart = **factory.makeWidget(havingGearCount: 42, andSpindleCount: 14)**
   let ref = **Link(to: destination)**
-  ~~~
+  ```
   {:.bad}
 
   In practice, this guideline along with those for
@@ -248,9 +119,9 @@ These design guidelines explain how to make sure that your code feels like a par
   have a label unless the call is performing a
   [value preserving type conversion](#type-conversion).
 
-  ~~~swift
+  ```swift
   let rgbForeground = RGBColor(cmykForeground)
-  ~~~
+  ```
   {{enddetail}}
 
 * **Name functions and methods according to their side-effects**
@@ -283,7 +154,7 @@ These design guidelines explain how to make sure that your code feels like a par
         [participle](https://en.wikipedia.org/wiki/Participle) (usually
         appending “ed”):
 
-        ~~~ swift
+        ``` swift
         /// Reverses `self` in-place.
         mutating func reverse()
 
@@ -292,14 +163,14 @@ These design guidelines explain how to make sure that your code feels like a par
         ...
         x.reverse()
         let y = x.reversed()
-        ~~~
+        ```
 
       * When adding “ed” is not grammatical because the verb has a direct
         object, name the nonmutating variant using the verb's present
         [participle](https://en.wikipedia.org/wiki/Participle), by
         appending “ing.”
 
-        ~~~ swift
+        ``` swift
         /// Strips all the newlines from `self`
         mutating func stripNewlines()
 
@@ -308,7 +179,7 @@ These design guidelines explain how to make sure that your code feels like a par
         ...
         s.stripNewlines()
         let oneLine = t.strippingNewlines()
-        ~~~
+        ```
 
       {{enddetail}}
 
@@ -423,21 +294,21 @@ These design guidelines explain how to make sure that your code feels like a par
 
   1. When there's no obvious `self`:
 
-     ~~~
+     ```
      min(x, y, z)
-     ~~~
+     ```
 
   2. When the function is an unconstrained generic:
 
-     ~~~
+     ```
      print(x)
-     ~~~
+     ```
 
   3. When function syntax is part of the established domain notation:
 
-     ~~~
+     ```
      sin(x)
-     ~~~
+     ```
 
   {{enddetail}}
 
@@ -452,18 +323,18 @@ These design guidelines explain how to make sure that your code feels like a par
   that commonly appear as all upper case in American English should be
   uniformly up- or down-cased according to case conventions:
 
-  ~~~swift
+  ```swift
   var **utf8**Bytes: [**UTF8**.CodeUnit]
   var isRepresentableAs**ASCII** = true
   var user**SMTP**Server: Secure**SMTP**Server
-  ~~~
+  ```
 
   Other acronyms should be treated as ordinary words:
 
-  ~~~swift
+  ```swift
   var **radar**Detector: **Radar**Scanner
   var enjoys**Scuba**Diving = true
-  ~~~
+  ```
   {{enddetail}}
 
 
@@ -484,7 +355,7 @@ These design guidelines explain how to make sure that your code feels like a par
   For example, the following is encouraged, since the methods do essentially
   the same things:
 
-  ~~~ swift
+  ``` swift
   extension Shape {
     /// Returns `true` if `other` is within the area of `self`;
     /// otherwise, `false`.
@@ -498,25 +369,25 @@ These design guidelines explain how to make sure that your code feels like a par
     /// otherwise, `false`.
     func **contains**(_ other: **LineSegment**) -> Bool { ... }
   }
-  ~~~
+  ```
   {:.good}
 
   And since geometric types and collections are separate domains,
   this is also fine in the same program:
 
-  ~~~ swift
+  ``` swift
   extension Collection where Element : Equatable {
     /// Returns `true` if `self` contains an element equal to
     /// `sought`; otherwise, `false`.
     func **contains**(_ sought: Element) -> Bool { ... }
   }
-  ~~~
+  ```
   {:.good}
 
   However, these `index` methods have different semantics, and should
   have been named differently:
 
-  ~~~ swift
+  ``` swift
   extension Database {
     /// Rebuilds the database's search index
     func **index**() { ... }
@@ -524,13 +395,13 @@ These design guidelines explain how to make sure that your code feels like a par
     /// Returns the `n`th row in the given table.
     func **index**(_ n: Int, inTable: TableID) -> TableRow { ... }
   }
-  ~~~
+  ```
   {:.bad}
 
   Lastly, avoid “overloading on return type” because it causes
   ambiguities in the presence of type inference.
 
-  ~~~ swift
+  ``` swift
   extension Box {
     /// Returns the `Int` stored in `self`, if any, and
     /// `nil` otherwise.
@@ -540,7 +411,7 @@ These design guidelines explain how to make sure that your code feels like a par
     /// `nil` otherwise.
     func **value**() -> String? { ... }
   }
-  ~~~
+  ```
   {:.bad}
 
   {{enddetail}}
@@ -548,9 +419,9 @@ These design guidelines explain how to make sure that your code feels like a par
 ### Parameters
 {:#parameter-names}
 
-~~~swift
+```swift
 func move(from **start**: Point, to **end**: Point)
-~~~
+```
 
 * **Choose parameter names to serve documentation**. Even though
   parameter names do not appear at a function or method's point of
@@ -562,19 +433,19 @@ func move(from **start**: Point, to **end**: Point)
   Choose these names to make documentation easy to read.  For example,
   these names make documentation read naturally:
 
-  ~~~swift
+  ```swift
   /// Return an `Array` containing the elements of `self`
   /// that satisfy `**predicate**`.
   func filter(_ **predicate**: (Element) -> Bool) -> [Generator.Element]
 
   /// Replace the given `**subRange**` of elements with `**newElements**`.
   mutating func replaceRange(_ **subRange**: Range<Index>, with **newElements**: [E])
-  ~~~
+  ```
   {:.good}
 
   These, however, make the documentation awkward and ungrammatical:
 
-  ~~~swift
+  ```swift
   /// Return an `Array` containing the elements of `self`
   /// that satisfy `**includedInResult**`.
   func filter(_ **includedInResult**: (Element) -> Bool) -> [Generator.Element]
@@ -582,7 +453,7 @@ func move(from **start**: Point, to **end**: Point)
   /// Replace the **range of elements indicated by `r`** with
   /// the contents of `**with**`.
   mutating func replaceRange(_ **r**: Range<Index>, **with**: [E])
-  ~~~
+  ```
   {:.bad}
 
   {{enddetail}}
@@ -597,24 +468,24 @@ func move(from **start**: Point, to **end**: Point)
   Default arguments improve readability by
   hiding irrelevant information.  For example:
 
-  ~~~ swift
+  ``` swift
   let order = lastName.compare(
     royalFamilyName**, options: [], range: nil, locale: nil**)
-  ~~~
+  ```
   {:.bad}
 
   can become the much simpler:
 
-  ~~~ swift
+  ``` swift
   let order = lastName.**compare(royalFamilyName)**
-  ~~~
+  ```
   {:.good}
 
   Default arguments are generally preferable to the use of method
   families, because they impose a lower cognitive burden on anyone
   trying to understand the API.
 
-  ~~~ swift
+  ``` swift
   extension String {
     /// *...description...*
     public func compare(
@@ -622,12 +493,12 @@ func move(from **start**: Point, to **end**: Point)
        range: Range<Index>? **= nil**, locale: Locale? **= nil**
     ) -> Ordering
   }
-  ~~~
+  ```
   {:.good}
 
   The above may not be simple, but it is much simpler than:
 
-  ~~~ swift
+  ``` swift
   extension String {
     /// *...description 1...*
     public func **compare**(_ other: String) -> Ordering
@@ -641,7 +512,7 @@ func move(from **start**: Point, to **end**: Point)
        _ other: String, options: StringCompareOptions,
        range: Range<Index>, locale: Locale) -> Ordering
   }
-  ~~~
+  ```
   {:.bad}
 
   Every member of a method family needs to be separately documented
@@ -667,10 +538,10 @@ func move(from **start**: Point, to **end**: Point)
 
 ### Argument Labels
 
-~~~swift
+```swift
 func move(**from** start: Point, **to** end: Point)
 x.move(**from:** x, **to:** y)
-~~~
+```
 
 * **Omit all labels when arguments can't be usefully distinguished**,
   e.g. `min(number1, number2)`, `zip(sequence1, sequence2)`.
@@ -684,7 +555,7 @@ x.move(**from:** x, **to:** y)
   {{detail}}
   The first argument should always be the source of the conversion.
 
-  ~~~
+  ```
   extension String {
     // Convert `x` into its textual representation in the given radix
     init(**_** x: BigInt, radix: Int = 10)   <span class="commentary">← Note the initial underscore</span>
@@ -694,12 +565,12 @@ x.move(**from:** x, **to:** y)
   text += **String(veryLargeNumber)**
   text += " and in hexadecimal, it's"
   text += **String(veryLargeNumber, radix: 16)**
-  ~~~
+  ```
 
   In “narrowing” type conversions, though, a label that describes
   the narrowing is recommended.
 
-  ~~~ swift
+  ``` swift
   extension UInt32 {
     /// Creates an instance having the specified `value`.
     init(**_** value: Int16)            <span class="commentary">← Widening, so no label</span>
@@ -709,7 +580,7 @@ x.move(**from:** x, **to:** y)
     /// approximation of `valueToApproximate`.
     init(**saturating** valueToApproximate: UInt64)
   }
-  ~~~
+  ```
 
   > A value preserving type conversion is a
   > [monomorphism](https://en.wikipedia.org/wiki/Monomorphism), i.e.
@@ -739,19 +610,19 @@ x.move(**from:** x, **to:** y)
   An exception arises when the first two arguments represent parts of
   a single abstraction.
 
-  ~~~swift
+  ```swift
   a.move(**toX:** b, **y:** c)
   a.fade(**fromRed:** b, **green:** c, **blue:** d)
-  ~~~
+  ```
   {:.bad}
 
   In such cases, begin the argument label *after* the preposition, to
   keep the abstraction clear.
 
-  ~~~swift
+  ```swift
   a.moveTo(**x:** b, **y:** c)
   a.fadeFrom(**red:** b, **green:** c, **blue:** d)
-  ~~~
+  ```
   {:.good}
   {{enddetail}}
 
@@ -765,21 +636,21 @@ x.move(**from:** x, **to:** y)
   This guideline implies that if the first argument *doesn't* form
   part of a grammatical phrase, it should have a label.
 
-  ~~~swift
+  ```swift
   view.dismiss(**animated:** false)
   let text = words.split(**maxSplits:** 12)
   let studentsByName = students.sorted(**isOrderedBefore:** Student.namePrecedes)
-  ~~~
+  ```
   {:.good}
 
   Note that it's important that the phrase convey the correct meaning.
   The following would be grammatical but would express the wrong
   thing.
 
-  ~~~swift
+  ```swift
   view.dismiss(false)   <span class="commentary">Don't dismiss? Dismiss a Bool?</span>
   words.split(12)       <span class="commentary">Split the number 12?</span>
-  ~~~
+  ```
   {:.bad}
 
   Note also that arguments with default values can be omitted, and
@@ -801,7 +672,7 @@ x.move(**from:** x, **to:** y)
   explanatory power, can be referenced from documentation comments,
   and provide expressive access to tuple members.
 
-  ~~~ swift
+  ``` swift
   /// Ensure that we hold uniquely-referenced storage for at least
   /// `requestedCapacity` elements.
   ///
@@ -818,7 +689,7 @@ x.move(**from:** x, **to:** y)
     minimumCapacity requestedCapacity: Int,
     allocate: (_ **byteCount**: Int) -> UnsafePointer&lt;Void&gt;
   ) -> (**reallocated:** Bool, **capacityChanged:** Bool)
-  ~~~
+  ```
 
   Names used for closure parameters should be chosen like
   [parameter names](#parameter-names) for top-level functions. Labels for
@@ -834,7 +705,7 @@ x.move(**from:** x, **to:** y)
   {{detail}}
   For example, consider this overload set:
 
-  ~~~ swift
+  ``` swift
   struct Array<Element> {
     /// Inserts `newElement` at `self.endIndex`.
     public mutating func append(_ newElement: Element)
@@ -844,7 +715,7 @@ x.move(**from:** x, **to:** y)
     public mutating func append<S: SequenceType>(_ newElements: S)
       where S.Generator.Element == Element
   }
-  ~~~
+  ```
   {:.bad}
 
   These methods form a semantic family, and the argument types
@@ -852,16 +723,16 @@ x.move(**from:** x, **to:** y)
   is `Any`, a single element can have the same type as a sequence of
   elements.
 
-  ~~~ swift
+  ``` swift
   var values: [Any] = [1, "a"]
   values.append([2, 3, 4]) // [1, "a", [2, 3, 4]] or [1, "a", 2, 3, 4]?
-  ~~~
+  ```
   {:.bad}
 
   To eliminate the ambiguity, name the second overload more
   explicitly.
 
-  ~~~ swift
+  ``` swift
   struct Array {
     /// Inserts `newElement` at `self.endIndex`.
     public mutating func append(_ newElement: Element)
@@ -871,7 +742,7 @@ x.move(**from:** x, **to:** y)
     public mutating func append<S: SequenceType>(**contentsOf** newElements: S)
       where S.Generator.Element == Element
   }
-  ~~~
+  ```
   {:.good}
 
   Notice how the new name better matches the documentation comment.
