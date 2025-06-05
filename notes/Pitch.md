@@ -36,28 +36,90 @@ The DocC archives generated from the catalogs can be hosted on docs.swift.org, a
 
 For content that exists today on swift.org as an article, leverage the Jekyll redirectTo capabilities, updating the front matter of those articles to provide a redirect when the DocC archives are located through a front-end site (swift.org or docs.swift.org) and published with a defined URL.
 
+## Detailed Design
+
+### Catalogs and reviewers
+
+Have a DocC catalog that provides a collection of documentation for each workgroup or steering group with a desire to host one.
+These documentation catalogs are meant to be separate from API reference documentation, so in DocC terms - they're "bare" catalogs with only articles, or potentially hosting both articles and tutorials.
+Viewed from a "type" of documentation, for example referencing [diátaxis](https://diataxis.fr), the contents are meant to host, [explanation](https://diataxis.fr/explanation/), [tutorials](https://diataxis.fr/tutorials/), and [how-to guides](https://diataxis.fr/how-to-guides/); not [reference](https://diataxis.fr/reference/) content.
+
+Each catalog is expected to be associated by an existing workgroup or steering group.
+
+  - API guidelines - moderated/reviewed by the language steering group.
+  - Server guides - moderated/reviewed by the SSWG.
+  - C++ Interop Guide - moderated/reviewed by C++ Interop group.
+  - Swift Migration guides - moderated by lang/platforms.
+  - Embedded Swift - moderated/reviewed by embedded workgroup.
+  - Tools Guides - moderated/reviewed by platform & ecosystem.
+
+The workgroup or steering group chooses and provides guidance for who should be included as reviewers for catalogs they "own".
+From a mechanical perspective, reviewers are listed in a [CODEOWNERS](../CODEOWNERS) file, leveraging the GitHub groups that Swift provides, or listing GitHub usernames individually.
+
+If, for some reason, a group dissolves, any catalogs can be associated with another group, or revert to direct control by the Swift core team if they prefer.
+
 ### Swift Docs Repository Content
 
 Based on my review of existing content in Swift.org, I'd propose the following initial collections:
 
-  - API guidelines (moderated/reviewed by the language steering group)
+- API guidelines
   
-  - Server guides (moderated/reviewed by the SSWG)
-    - everything under `server/guides`
-    - static linux getting started
-    
-  - C++ Interop Guide (moderated/reviewed by C++ Interop group)
-    - wrapping c-cpp library article
-    
-  - Swift Migration guides (moderated by lang steering group)
-    - concurrency migration guide in https://github.com/apple/swift-migration-guide
-    - older guides as articles in https://github.com/swiftlang/swift-org-website/ in `migration-guide-*` dirs
-    
-  - Tools Guides (moderated/reviewed by platform steering group)
-    - zero to swift nvim
-    - zero to swift emacs
-    - getting started with vscode swift
+  - documentation/api-design-guidelines/index.md
 
+- Server guides
+
+  - documentation/server/index.md
+  - documentation/server/guides/memory-leaks-and-usage.md
+  - documentation/server/guides/packaging.md
+  - documentation/server/guides/allocations.md
+  - documentation/server/guides/libraries
+  - documentation/server/guides/libraries/log-levels.md
+  - documentation/server/guides/libraries/concurrency-adoption-guidelines.md
+  - documentation/server/guides/testing.md
+  - documentation/server/guides/performance.md
+  - documentation/server/guides/linux-perf.md
+  - documentation/server/guides/deployment.md
+  - documentation/server/guides/index.md
+  - documentation/server/guides/deploying/heroku.md
+  - documentation/server/guides/deploying/ubuntu.md
+  - documentation/server/guides/deploying/gcp.md
+  - documentation/server/guides/deploying/digital-ocean.md
+  - documentation/server/guides/deploying/aws-copilot-fargate-vapor-mongo.md
+  - documentation/server/guides/deploying/aws.md
+  - documentation/server/guides/deploying/aws-sam-lambda.md
+  - documentation/server/guides/building.md
+  - documentation/server/guides/llvm-sanitizers.md
+  - documentation/server/guides/passkeys.md
+  - documentation/articles/static-linux-getting-started.md
+    
+- Interop Guides
+
+  - documentation/articles/wrapping-c-cpp-library-in-swift.md
+  - documentation/cxx-interop/project-build-setup/index.md
+
+- Swift Language Guides
+
+  - possibly seeding this and re-organizing it with content from https://github.com/swiftlang/swift-migration-guide
+  - documentation/articles/value-and-reference-types.md
+  - migration-guide-swift3/_migration-guide.md
+  - migration-guide-swift3/se-0107-migrate.md
+  - migration-guide-swift3/index.md
+  - migration-guide-swift4/_migration-guide.md
+  - migration-guide-swift4/index.md
+  - migration-guide-swift4.2/_migration-guide.md
+  - migration-guide-swift4.2/index.md
+  - migration-guide-swift5/_migration-guide.md
+  - migration-guide-swift5/index.md
+  - documentation/concurrency/index.md
+  - documentation/lldb/_playground-support.md
+  - documentation/lldb/index.md
+
+- Tool Guides
+
+  - documentation/articles/zero-to-swift-nvim.md
+  - documentation/articles/zero-to-swift-emacs.md
+  - documentation/articles/getting-started-with-vscode-swift.md
+  
 ### Existing "standalone" DocC catalogs
 
 The Swift Programming Language:
@@ -73,7 +135,7 @@ I think it is best to maintain and evolve with the close proximity, rather than 
 
 Concurrency Migration Guide:
 
-The content displayed at https://www.swift.org/migration/documentation/migrationguide/ is generated from a standalong DocC catalog in the repository https://github.com/apple/swift-migration-guide.
+The content displayed at https://www.swift.org/migration/documentation/migrationguide/ is generated from a standalong DocC catalog in the repository https://github.com/swiftlang/swift-migration-guide.
 There are legacy swift language migration guides, for earlier versions of Swift, hosted as articles within swift.org.
 
 I'm uncertain if some allowance to directory structure should be made for example code in a mono-repo style structure such as this. I presumed, like the embedded examples, they were very relevant and should be maintained in sync and proximity. 
