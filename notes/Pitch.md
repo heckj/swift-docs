@@ -142,7 +142,7 @@ I'm uncertain if some allowance to directory structure should be made for exampl
 
 ## Alternatives Considered
 
-Creating an additional repository per catalog.
+Instead of using a mono-repo layout, create an additional repository per catalog.
 
 This would follow the pattern of what exists today with the repositories https://github.com/apple/swift-migration-guide, https://github.com/apple/swift-embedded-examples, and https://github.com/swiftlang/swift-book/.
 Each repository could have it's own set of reviewers and committers, aligned with their relevant workgroup or steering group.
