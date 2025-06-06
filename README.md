@@ -16,6 +16,41 @@ In particular, to host the source for Swift documentation:
 
 For more details, read [the pitch](./notes/Pitch.md) created for this work.
 
+## Preview commands
+
+Use the following commands to build and locally preview the DocC catalogs:
+
+
+API guidelines:
+
+```bash
+xcrun docc preview APIGuides.docc
+``` 
+
+Server guides:
+
+```bash
+xcrun docc preview APIGuides.docc
+``` 
+
+Interop Guides:
+
+```bash
+xcrun docc preview InteropGuides.docc
+``` 
+  
+Swift Language Guides:
+
+```bash
+xcrun docc preview SwiftLangGuides.docc
+``` 
+
+Tool Guides:
+
+```bash
+xcrun docc preview ToolGuides.docc
+``` 
+
 ## Catalog contents - proposed migration plan
 
 - API guidelines
@@ -50,9 +85,11 @@ For more details, read [the pitch](./notes/Pitch.md) created for this work.
     
 - Interop Guides
 
-  - [ ] documentation/articles/wrapping-c-cpp-library-in-swift.md
-  - [ ] documentation/cxx-interop/project-build-setup/index.md
-
+  - [x] documentation/articles/wrapping-c-cpp-library-in-swift.md
+  - [x] documentation/cxx-interop/project-build-setup/index.md
+  - [x] documentation/cxx-interop/status/index.md
+  - [x] documentation/cxx-interop/index.md
+  
 - Swift Language Guides
 
   - possibly seeding this and re-organizing it with content from https://github.com/swiftlang/swift-migration-guide

@@ -4,7 +4,11 @@
     @TechnologyRoot()
 }
 
-Collection of drafts for the Swift open source project.
+Interoperability between Swift and other languages
 
 ## Topics
 
+### C++
+
+- <doc:cxx-interop>
+- <doc:cxx-interop-status>
